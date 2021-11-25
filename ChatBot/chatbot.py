@@ -11,3 +11,12 @@ re5 = int(input())
 re7 = int(input())
 age = (re3 * 70 + re5 * 21 + re7 * 15) % 105
 print("Your age is"+str(age)+"; that's a good time to start programming!")
+print("Now I will prove to you that I can count to any number you want.")
+d=int(input())
+i=0
+while(i<d):
+    print("!"+i)
+    i+=1
+
+
+print("Completed, have a nice day!")
