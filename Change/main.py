@@ -29,3 +29,36 @@ def second_part():
 
 second_part()
 
+inp1 = 0
+inp2 = 0
+
+
+def third_part():
+    inp1 = 'usd'
+    inp2 = 'eur'
+    user_inp = input()
+    dict_U = requests.get('http://www.floatrates.com/daily/' + user_inp + '.json')
+    with open('usd.json', 'w') as file:
+        json.dump(dict_U.json(), file)
+    with open('usd.json', 'r') as file:
+        for line in file:
+            string = line
+        dict_j1 = json.loads(string)
+
+    rate = float(dict_j1[inp1]['rate'])
+    count = float(input())
+    print('You received ' + str(round(rate * count, 2)) + ' ' + inp1)
+    dict_E = requests.get('http://www.floatrates.com/daily/' + user_inp + '.json')
+    with open('eur.json', 'w') as file:
+        json.dump(dict_E.json(), file)
+    with open('eur.json', 'r') as file:
+        for line in file:
+            string = line
+        dict_j2 = json.loads(string)
+    rate = float(dict_j2[inp2]['rate'])
+    count = float(input())
+    print('You received ' + str(round(rate * count, 2)) + ' ' + inp2)
+
+
+third_part()
+
